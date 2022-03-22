@@ -6,7 +6,7 @@
 /*   By: csantivi <csantivi@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 17:05:16 by csantivi          #+#    #+#             */
-/*   Updated: 2022/03/22 17:40:34 by csantivi         ###   ########.fr       */
+/*   Updated: 2022/03/22 23:16:22 by csantivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ char	*read_and_collect(int fd, char *current)
 
 char	*get_next_line(int fd)
 {
-	static char	*current[257];
+	static char	*current[10240];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 256)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 10240)
 		return (NULL);
 	current[fd] = read_and_collect(fd, current[fd]);
 	if (!current[fd])
