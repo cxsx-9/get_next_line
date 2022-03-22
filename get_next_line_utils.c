@@ -6,7 +6,7 @@
 /*   By: csantivi <csantivi@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:51:11 by csantivi          #+#    #+#             */
-/*   Updated: 2022/03/21 18:37:01 by csantivi         ###   ########.fr       */
+/*   Updated: 2022/03/22 14:52:05 by csantivi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,15 +80,12 @@ char	*get_line(char *current)
 	if (!new)
 		return (NULL);
 	i = 0;
-	while (current[i] && current[i] != '\n')
+	while (current[i])
 	{
 		new[i] = current[i];
-		if (current[i] == '\n')
-		{
-			i++;
-			break ;
-		}
 		i++;
+		if (current[i - 1] == '\n')
+			break ;
 	}
 	new[i] = '\0';
 	return (new);
